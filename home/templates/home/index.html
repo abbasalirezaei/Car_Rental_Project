@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+			
+{% if user.is_authenticated %}
+<h1>you are login</h1>
+{% else %}
+
+<div class="row ">
+<div class="col-12 alert alert-primary my-5 text-center" role="alert">
+	Please first Login as Customer or Dealer, links are in the Nav bar.
+</div>
+  
+</div>
+{% endif %}
+
+{% endblock content %}
+	

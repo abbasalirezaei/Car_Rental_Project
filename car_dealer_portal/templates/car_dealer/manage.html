@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Car Dealer Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/car_dealer_portal/auth/">Home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/history/">Earnings</a>
+</div>
+<h3 class="w3-center" style="padding-top:30"><b>Posted Vehicles</b></h3>
+<div style="padding:18">
+<table class="w3-table w3-striped w3-center">
+
+  <tr>
+    <th style="padding:20;">Car </th>
+    <th style="padding:20;">Color </th>
+    <th style="padding:20;">Capacity </th>
+    <th style="padding:20;">Pincode </th>
+    <th style="padding:20;">Address</th>
+    <th style="padding:20;">Action</th>
+  </tr>
+  {% for vehicle in vehicle_list %}
+  <tr>
+      <td>{{vehicle.car_name}}</td>
+      <td>{{vehicle.color}}</td>
+      <td>{{vehicle.capacity}} Seats</td>
+      <td>{{vehicle.area.pincode}}</td>
+      <td>{{vehicle.area.city}}</td>
+      <td><form action = "/car_dealer_portal/delete/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{vehicle.id}}">
+        <input class="w3-btn w3-red" type="submit" value="Delete">
+      </form></td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

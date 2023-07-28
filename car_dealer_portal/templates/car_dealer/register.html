@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+  | Car Dealer Registration
+{% endblock title %}
+  
+{% block content %}
+
+<div class="w3-display-container"  style="height:700px;">
+<div class="w3-display-middle">
+
+  <b> <h2>Registration Form</h2></b>
+
+<form class="w3-container" action="/car_dealer_portal/registration/" method="POST">{% csrf_token %}
+  <lable>First Name</lable> 
+  <input class="w3-input form-control" type="text" name="firstname">
+  
+  <lable>Last Name</lable> 
+  <input class="w3-input form-control" type="text" name="lastname">
+  
+  <lable>Username</lable> 
+  <input class="w3-input form-control" type="text" name="username">
+  
+  <lable>Password</lable> 
+  <input class="w3-input form-control" type="password" name="password">
+  
+  <lable>Email</lable> 
+  <input class="w3-input form-control" type="text" name="email">
+  
+  <lable>Contact</lable>
+   <input class="w3-input form-control" type="text" name="mobile">
+  
+   <lable>City</lable> 
+  <input class="w3-input form-control" type="text" name="city">
+  
+  <lable>Pincode</lable> 
+  <input class="w3-input form-control" type="text" name="pincode"><br>
+  
+  <!-- <input class="w3-btn w3-teal" type="submit"><br><br> -->
+  <button class="btn btn-success"> Submit</button><br><br>
+  
+  <a class="btn btn-info" href="/car_dealer_portal/login/">Login</a>
+  <a class="btn btn-info" href="/">Home</a>
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<div class="w3-display-container" style="height:500px;">
+  <div class="w3-display-middle">
+      <form class = "w3-container" action="/car_dealer_portal/auth/" method="POST">{% csrf_token %}
+        <lable>Username</lable> 
+         <input class="w3-input form-control" type="text" name="username">
+        
+         <lable>Password</lable>  
+        <input class="w3-input form-control" type="password" name="password"><br>
+        <button class="btn btn-success">Login</button>
+      </form><br><br>
+      <div class="w3-container">
+        <a class="btn btn-info" href="/car_dealer_portal/register/">Register as Dealer</a>
+        <a class="btn btn-info" href="/">Home</a>
+      </div>
+  </div>
+</div>
+{% endblock %}

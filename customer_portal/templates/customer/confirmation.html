@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Customer Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/">Manage</a>
+  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Search Cars</a>
+</div>
+<div class="w3-containet w3-center" style="padding:100px  ">
+<b>Car : {{vehicle.car_name}}</b>
+<form class="w3-container" action="/customer_portal/confirmed/" method="post">
+  {% csrf_token %}
+  <b>Price : ${{cost_per_day}} per day</b><br><br>
+  <lable>How many days?</lable> <input type="text" placeholder="2" name="days"><br><br>
+  <input class="w3-btn w3-teal" type="submit"  value="Confirm My Order"><br><br>
+  <input type="hidden" value="{{vehicle.id}}" name="id">
+  <br><br>
+</from>
+</div>
+{% endblock %}
